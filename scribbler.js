@@ -1,5 +1,5 @@
 // utilities
-/*
+
 var get = function (selector, scope) {
   scope = scope ? scope : document;
   return scope.querySelector(selector);
@@ -9,7 +9,7 @@ var getAll = function (selector, scope) {
   scope = scope ? scope : document;
   return scope.querySelectorAll(selector);
 };
-
+/*
 // setup typewriter effect in the terminal demo
 if (document.getElementsByClassName('demo').length > 0) {
   var i = 0;
