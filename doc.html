@@ -1,101 +1,282 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Scribbler Documentation - a code documentation page template for codrops</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="scribbler-global.css">
-    <link rel="stylesheet" href="scribbler-doc.css">
-    <link rel="author" href="humans.txt">
-  </head>
-  <body>
-    <div class="doc__bg"></div>
-    <nav class="header">
-      <h1 class="logo">Scribbler <span class="logo__thin">Doc</span></h1>
-      <ul class="menu">
-        <div class="menu__item toggle"><span></span></div>
-        <li class="menu__item"><a href="" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
-        <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
-      </ul>
-    </nav>
-    <div class="wrapper">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MKT Documentation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="scribbler-global.css">
+  <link rel="stylesheet" href="scribbler-doc.css">
+  <link rel="author" href="humans.txt">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/vs.min.css">
+
+  <style>
+    .hljs {
+      background: #f8f8fa;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="doc__bg"></div>
+  <nav class="header">
+    <h1 class="logo">MKT.js <span class="logo__thin">Doc</span></h1>
+    <ul class="menu">
+      <div class="menu__item toggle"><span></span></div>
+      <li class="menu__item"><a href="" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+      <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+  </nav>
+  <div class="wrapper">
       <aside class="doc__nav">
-        <ul>
-          <li class="js-btn selected">Get Started</li>
-          <li class="js-btn">Configuration</li>
-          <li class="js-btn">Keybindings</li>
-          <li class="js-btn">Issues</li>
-        </ul>
-      </aside>
-      <article class="doc__content">
-        <section class="js-section">
-          <h3 class="section__title">Get Started</h3>
-          <p>Learn how to configure settings for Scribbler, such as your syntax highlighting preference and the default saving folder location.</p>
-          <h3 class="section__title">Installation</h3>
-          <div class="code__block code__block--notabs">
-            <pre class="code code--block">
+          <ul>
+            <li class="js-btn selected">Get Started</li>
+            <li class="js-btn">Price Exchange</li>
+            <li class="js-btn">Historical</li>
+          </ul>
+        </aside>
+    <article class="doc__content">
+
+      <section class="js-section">
+        <h3 class="section__title">Get Started</h3>
+        <p>Features : <br><br>
+          Our API returns the current price of any cryptocurrency and all the trading info (price, vol, open, high, low etc) for the requested pairs. We provide pricing data for 5,300+ coins and 240,000+ currency pairs.<br><br>
+          Get daily, hourly and minute historical data, daily data at any given timestamp, daily average price based on hourly vwap and total daily and hourly exchange volume</p>
+
+        <li> Create your api From here : <a href="https://min-api.cryptocompare.com/documentation">Cryptocompare</a></li>
+        <h3 class="section__title">Installation</h3>
+        <div class="code__block code__block--notabs">
+          <pre class="code code--block">
               <code>
-                $ scribbler  ——config
-                  {
-                    “encryption”: true, 
-                    “highlighting“: true,
-                    “prettyTable”: false,
-                    “font”: [“Helvetica”, “sans-serif”],
-                    “folder”: “~/Desktop“
-                  }
-              </code>
+                $ npm i @mkt-eg/mkt
+             </code>
             </pre>
-          </div>
-        </section>
-        <section class="js-section">
-          <h3 class="section__title">Configuration</h3>
-          <p>Learn how to configure settings for Scribbler, such as your syntax highlighting preference and the default saving folder location.</p>
+        </div>
+      </section>
+
+      <section class="js-section">
+        <h3 class="section__title">Price Exchange</h3>
+        <p>Get the current price of any cryptocurrency in any other currency that you need.
+
+          If the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion. If the
+          opposite pair trades we invert it (eg.: BTC-XMR)
+
+        </p>
+        <table id="customers">
+          <tr>
+            <th>Parameters</th>
+            <th>Value</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>fsym</td>
+            <td>The cryptocurrency symbol of interest [ Min length - 1] [ Max length - 10]</td>
+            <td>REQUIRED </td>
+          </tr>
+          <tr>
+            <td>tsyms</td>
+            <td>Comma separated cryptocurrency symbols list to convert into [ Min length - 1] [ Max length - 500]</td>
+            <td>REQUIRED</td>
+          </tr>
+          <tr>
+            <td>type</td>
+            <td>single - multi - full </td>
+            <td>single</td>
+          </tr>
+        </table>
+        <div class="hero__terminal">
+          <h4>Full price Request </h4>
+          <pre>
+              <!-- Place your demo code here -->
+<code class="">
+    const { MKT } = require('@mkt-eg/mkt')
+
+    const mkt = new MKT(
+      'bbbc22c3a13c74456a6d4bb7ba5745476ebfdc81c867fc240258122b78eb6a6f'
+    )
+    const data = mkt
+      .exchange({
+        fsym: 'BTC',
+        tsyms: 'USD',
+        type: 'full'
+      })
+      .then(response => {
+        console.log(JSON.stringify(response.data))
+      })
+      .catch(error => {
+        console.log(error)
+      })
+</code>
+</pre>
+
+
+
+
+          <h4>Single/Multi price Request </h4>
+          <pre>
+              <!-- Place your demo code here -->
+<code class="">
+    const { MKT } = require('@mkt-eg/mkt')
+
+    const mkt = new MKT(
+      'bbbc22c3a13c74456a6d4bb7ba5745476ebfdc81c867fc240258122b78eb6a6f'
+    )
+    const data = mkt
+      .exchange({
+        fsym: 'BTC',
+        tsyms: 'USD',
+        type: 'full'
+      })
+      .then(response => {
+        console.log(JSON.stringify(response.data))
+      })
+      .catch(error => {
+        console.log(error)
+      })
+</code>
+                </pre>
+
+
+
+                
+        </div>
+
+        <hr />
+      </section>
+
+
+      <section class="js-section">
+          <h3 class="section__title">Historical OHLCV</h3>
+          <p>Get open, high, low, close, volumefrom and volumeto from the daily historical data.The values are based on 00:00 GMT time. It uses BTC conversion if data is not available because the coin is not trading in the specified currency. If you want to get all the available historical data, you can use limit=2000 and keep going back in time using the toTs param. You can then keep requesting batches using: &limit=2000&toTs={the earliest timestamp received}.
+
+</p>
+  
+          
           <table id="customers">
             <tr>
-              <th>Options</th>
+              <th>Parameters</th>
               <th>Value</th>
               <th>Default</th>
             </tr>
             <tr>
-              <td>encryption</td>
-              <td>encrypt all notes before saving. If turned on, it requires password to open the file.</td>
-              <td>false</td>
+              <td>fsym</td>
+              <td>The cryptocurrency symbol of interest [ Min length - 1] [ Max length - 10]</td>
+              <td>REQUIRED </td>
             </tr>
             <tr>
-              <td>highlighting</td>
-              <td>Show syntax highlight on markdown text.</td>
-              <td>true</td>
+              <td>tsyms</td>
+              <td>Comma separated cryptocurrency symbols list to convert into [ Min length - 1] [ Max length - 500]</td>
+              <td>REQUIRED</td>
             </tr>
             <tr>
-              <td>prettyTable</td>
-              <td>Render table with Scribbler’s pretty table style.</td>
-              <td>true</td>
+                <td>tryConversion</td>
+                <td>If set to false, it will try to get only direct trading values [ Default - true]</td>
+                <td>ture</td>
             </tr>
-          </table>
-          <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-          <hr />
-        </section>
-        <section class="js-section">
-          <h3 class="section__title">Keybindings</h3>
-          <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per. At eam movet verear, in sea brute patrioque disputando, usu nonumes torquatos an. Ex his quaerendum intellegebat, ut vel homero accusam. Eum at debet tibique, in vocibus temporibus adversarium sed. Porro verear eu vix, ne usu tation vituperata.</p>
-          <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-          <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-          <hr />
-        </section>
-        <section class="js-section">
-          <h3 class="section__title">Issues</h3>
-          <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per. At eam movet verear, in sea brute patrioque disputando, usu nonumes torquatos an. Ex his quaerendum intellegebat, ut vel homero accusam. Eum at debet tibique, in vocibus temporibus adversarium sed. Porro verear eu vix, ne usu tation vituperata.</p>
-          <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-        </section>
-      </article>
-    </div>
 
-    <footer class="footer">Scribbler is a free HTML template created exclusively for <a href="https://tympanus.net/codrops/?p=33686" target="_blank" class="link link--light">Codrops</a>.</footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="scribbler.js"></script>
-  </body>
+            <tr>
+                <td>aggregate</td>
+                <td>Time period to aggregate the data over (for daily it's days, for hourly it's hours and for minute histo it's minutes) </td>
+                <td>[ Min - 1] [ Max - 30] [ Default - 1]</td>
+            </tr> 
+
+
+            <tr>
+                <td>aggregatePredictableTimePeriods</td>
+                <td>True by default, only used when the aggregate param is also in use. If false it will aggregate based on the current time.If the param is false and the time you make the call is 1pm - 2pm, with aggregate 2, it will create the time slots: ... 9am, 11am, 1pm.If the param is false and the time you make the call is 2pm - 3pm, with aggregate 2, it will create the time slots: ... 10am, 12am, 2pm.If the param is true (default) and the time you make the call is 1pm - 2pm, with aggregate 2, it will create the time slots: ... 8am, 10am, 12pm.If the param is true (default) and the time you make the call is 2pm - 3pm, with aggregate 2, it will create the time slots: ... 10am, 12am, 2pm. [ Default - true]</td>
+                <td>[ Default - true]</td>
+            </tr> 
+
+
+            <tr>
+                <td>limit</td>
+                <td>The number of data points to return </td>
+                <td>[ Min - 1] [ Max - 2000] [ Default - 100]</td>
+            </tr> 
+
+            <tr>
+                <td>toTs</td>
+                <td>Returns historical data before that timestamp. If you want to get all the available historical data, you can use limit=2000 and keep going back in time using the toTs param. You can then keep requesting batches using: &limit=2000&toTs={the earliest timestamp received}</td>
+                <td>5676767679200</td>
+            </tr> 
+
+            <tr>
+                <td>sign</td>
+                <td>If set to true, the server will sign the requests (by default we don't sign them), this is useful for usage in smart contracts</td>
+                <td> [ Default - false]</td>
+            </tr> 
+
+
+            <tr>
+                <td>extraParams</td>
+                <td>he name of your application (we recommend you send it)</td>
+                <td> [ Min length - 1] [ Max length - 2000] [ Default - NotAvailable]</td>
+            </tr> 
+
+
+            <tr>
+                <td>allData</td>
+                <td>Returns all data (only available on histo day)</td>
+                <td>[ Default - false]</td>
+            </tr> 
+
+
+            <tr>
+                <td>apiType</td>
+                <td>Returns all data (only available on histo period) [day - hour - minute]</td>
+                <td>[Default - day ]</td>
+            </tr> 
+
+          </table>
+          <div class="hero__terminal">
+            <h4> Historical price OHLCV </h4>
+            <pre>
+                <!-- Place your demo code here -->
+  <code class="">
+      const MKT = new module.exports.MKT('bbbc22c3a13c74456a6d4bb7ba5745476ebfdc81c867fc240258122b78eb6a6f')
+      MKT.historical({
+        sympolPrice: 'true',
+        e: 'CCCAGG',
+        fsym: 'BTC',
+        tsyms: 'USD',
+        type: 'single',
+        aggregate: '1',
+        aggregatePredictableTimePeriods: true,
+        limit: 100,
+        allData: 'false',
+        extraParams: 'NotAvailable',
+        sign: 'false',
+        apiType: 'hour'
+      }).then((results)=>{
+       console.log(results.data)
+      })
+  </code>
+  </pre>
+  
+  
+  
+  
+  
+  
+                  
+          </div>
+  
+          <hr />
+        </section>
+ 
+
+
+    </article>
+  </div>
+
+  <footer class="footer">Scribbler is a free HTML template created exclusively for <a
+      href="https://tympanus.net/codrops/?p=33686" target="_blank" class="link link--light">Codrops</a>.</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="scribbler.js"></script>
+</body>
+
 </html>

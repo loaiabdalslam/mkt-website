@@ -37,7 +37,7 @@ if (document.getElementsByClassName('demo').length > 0) {
             
              {
                 "USD":9888.01, 💲
-                "EGP":182256.26 💸
+                "EGP":182256.26 💲
              }
              `;
   var speed = 30;
