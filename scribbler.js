@@ -1,4 +1,5 @@
 // utilities
+/*
 var get = function (selector, scope) {
   scope = scope ? scope : document;
   return scope.querySelector(selector);
@@ -86,7 +87,7 @@ window.addEventListener("load", function() {
     activePane.classList.add('active');
   }
 });
-
+*/
 //in page scrolling for documentaiton page
 var btns = getAll('.js-btn');
 var sections = getAll('.js-section');
