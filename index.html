@@ -6,20 +6,20 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="url" content="https://loaiabdalslam.github.io/mkt-website/">
       <meta name="identifier-URL" content="https://loaiabdalslam.github.io/mkt-website/">
-      <meta name="description" content="MKT.js is an Exchange Price Service , Stocks , Cryptocurrency,Stock prediction and more 
+      <meta name="description" content="MKT.js is an Exchange Price Service , Stocks , Cryptocurrency,Stock prediction and more
       This package contains hundreds of currencies, cryptocurrencies and stocks prices.">
       <meta name="keywords" content="tensorflow.js,deep learning,machine learning,bitcoin,exchange,mtk,mkt">
       <meta name="author" content="Loai abdalslam">
 
       <meta property="og:title" content="MKT.js - Stock prediction library ">
-<meta property="og:description" content="MKT.js is an Exchange Price Service , Stocks , Cryptocurrency,Stock prediction and more 
+<meta property="og:description" content="MKT.js is an Exchange Price Service , Stocks , Cryptocurrency,Stock prediction and more
 This package contains hundreds of currencies, cryptocurrencies and stocks prices.">
 <meta property="og:image" content="https://github.com/loaiabdalslam/MKT/raw/master/media/mkt.jpg">
 <meta property="og:url" content="https://loaiabdalslam.github.io/mkt-website/">
 
 
 <meta property="facebook:title" content="MKT.js - Stock prediction library ">
-<meta property="facebook:description" content="MKT.js is an Exchange Price Service , Stocks , Cryptocurrency,Stock prediction and more 
+<meta property="facebook:description" content="MKT.js is an Exchange Price Service , Stocks , Cryptocurrency,Stock prediction and more
 This package contains hundreds of currencies, cryptocurrencies and stocks prices.">
 <meta property="facebook:image" content="https://github.com/loaiabdalslam/MKT/raw/master/media/mkt.jpg">
 <meta property="facebook:url" content="https://loaiabdalslam.github.io/mkt-website/">
@@ -44,38 +44,69 @@ This package contains hundreds of currencies, cryptocurrencies and stocks prices
     </nav>
     <div class="hero">
       <h1 class="hero__title">MKT.js</h1>
-      
-      <p class="hero__description">Stock prediction and more </p>
+
+      <p class="hero__description">Stock prediction in 50 lines of code or less </p>
       <p><a class="github-button" href="https://github.com/loaiabdalslam/MKT" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star loaiabdalslam/MKT on GitHub">Star</a>
       </p>
     </div>
     <div class="hero__terminal">
       <pre>
         <!-- Place your demo code here -->
-        <code class="shell-session demo">
-          const { MKT } = require('@mkt-eg/mkt')
+        <!-- HTML generated using hilite.me --><div style=" overflow:auto;width:auto;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">const</span> <span style="color: #a6e22e">array</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;lodash/array&#39;</span><span style="color: #f8f8f2">);</span>
+        <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">MKT</span> <span style="color: #f8f8f2">}</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;@mkt-eg/mkt&#39;</span><span style="color: #f8f8f2">)</span>
 
-          const mkt = new MKT(
-            'bbbc22c3a13c74456a6d4bb7ba5745476ebfdc81c867fc240258122b78eb6a6f'
-          )
-          const data = mkt
-            .exchange({
-              fsym: 'BTC', // Single Fysm only 
-              tsyms: 'USD,EGP', // Multiaple Tsyms is allowed
-              type: 'single'
-            })
-            .then(response => {
-              console.log(JSON.stringify(response.data))
-            })
-            .catch(error => {
-              console.log(error)
-            })
-          
-        </code>
+        <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">MKT</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">MKT</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;bbbc22c3a13c74456a6d4bb7ba5745476ebfdc81c867fc240258122b78eb6a6f&#39;</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #a6e22e">MKT</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">historical</span><span style="color: #f8f8f2">({</span>
+          <span style="color: #a6e22e">sympolPrice</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;true&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">e</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;CCCAGG&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">fsym</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;BTC&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">tsyms</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;USD&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">type</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;single&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">aggregate</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">aggregatePredictableTimePeriods</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">limit</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">allData</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;false&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">extraParams</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;NotAvailable&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">sign</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;false&#39;</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">apiType</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;day&#39;</span>
+        <span style="color: #f8f8f2">}).</span><span style="color: #a6e22e">then</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">results</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">=&gt;</span><span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">data</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">JSON</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">stringify</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">results</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">data</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">options</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #a6e22e">rawData</span><span style="color: #f92672">:</span><span style="color: #a6e22e">data</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #a6e22e">chunkSize</span><span style="color: #f92672">:</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span><span style="color: #75715e">// split data into 5 series array</span>
+        <span style="color: #a6e22e">forcastList</span><span style="color: #f92672">:</span><span style="color: #a6e22e">array</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">chunk</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">rawData</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">)[</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">],</span> <span style="color: #75715e">// Get The last series from data.</span>
+        <span style="color: #a6e22e">steps</span><span style="color: #f92672">:</span><span style="color: #ae81ff">30</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e">// predicit the next 30 days</span>
+        <span style="color: #a6e22e">NNOptions</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+              <span style="color: #a6e22e">inputSize</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span>
+              <span style="color: #a6e22e">hiddenLayers</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">],</span>
+              <span style="color: #a6e22e">outputSize</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span>
+              <span style="color: #a6e22e">learningRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.01</span><span style="color: #f8f8f2">,</span>
+              <span style="color: #a6e22e">decayRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.999</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #f8f8f2">},</span>
+        <span style="color: #a6e22e">trainOptions</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">{</span>
+              <span style="color: #a6e22e">iterations</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20000</span><span style="color: #f8f8f2">,</span>    <span style="color: #75715e">// the maximum times to iterate the training data --&gt; number greater than 0</span>
+              <span style="color: #a6e22e">errorThresh</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.005</span><span style="color: #f8f8f2">,</span>   <span style="color: #75715e">// the acceptable error percentage from training data --&gt; number between 0 and 1</span>
+              <span style="color: #a6e22e">log</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>           <span style="color: #75715e">// true to use console.log, when a function is supplied it is used --&gt; Either true or a function</span>
+              <span style="color: #a6e22e">logPeriod</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">,</span>        <span style="color: #75715e">// iterations between logging out --&gt; number greater than 0</span>
+              <span style="color: #a6e22e">learningRate</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.3</span><span style="color: #f8f8f2">,</span>    <span style="color: #75715e">// scales with delta to effect training rate --&gt; number between 0 and 1</span>
+              <span style="color: #a6e22e">momentum</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.1</span><span style="color: #f8f8f2">,</span>        <span style="color: #75715e">// scales with next layer&#39;s change value --&gt; number between 0 and 1</span>
+              <span style="color: #a6e22e">callback</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">,</span>       <span style="color: #75715e">// a periodic call back that can be triggered while training --&gt; null or function</span>
+              <span style="color: #a6e22e">callbackPeriod</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">,</span>   <span style="color: #75715e">// the number of iterations through the training data between callback calls --&gt; number greater than 0</span>
+              <span style="color: #a6e22e">timeout</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">Infinity</span>     <span style="color: #75715e">// the max number of milliseconds to train for --&gt; number greater than 0</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+
+         <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">MKT</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">predict</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">options</span><span style="color: #f8f8f2">))</span>
+
+        <span style="color: #f8f8f2">})</span>
+        </pre></div>
+
+
+
       </pre>
       <img src="https://img.shields.io/github/last-commit/loaiabdalslam/mkt.svg">
       <img src="https://img.shields.io/npm/dw/@mkt-eg/mkt.svg">
-      
+
     </div>
     <div class="wrapper">
       <div class="installation">
@@ -130,6 +161,22 @@ This package contains hundreds of currencies, cryptocurrencies and stocks prices
     <div class="changelog">
       <div class="wrapper">
         <h3 class="section__title">Changelog</h3>
+
+        <div class="changelog__item">
+          <div class="changelog__meta">
+            <h4 class="changelog__title"> v1.2.6</h4>
+            <small class="changelog__date">26/7/2019</small>
+          </div>
+          <div class="changelog__detail">
+            <ul>
+              <li>Stock prediction using predict function</li>
+              <li>Fix Bugs </li>
+              <li>add brain.js lab  </li>
+            </ul>
+          </div>
+        </div>
+
+
         <div class="changelog__item">
           <div class="changelog__meta">
             <h4 class="changelog__title"> v1.1.3</h4>
